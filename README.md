@@ -20,12 +20,12 @@ Let's replace the fs module with an empty object in a browserify build
 }
 ```
 
-The same for a react-native project
+Using the "react-native" (or the browser) field in a react-native project to shim the fs module didn't work for me.
 
-```json
-"react-native": {
-  "fs": "actual-empty-object"
-}
+For the time being, I am now resorting to a rather hacky:
+
+```shell
+mkdir node_modules/fs && echo 'module.exports = {};' > node_modules/fs/index.js
 ```
 
 ## License
